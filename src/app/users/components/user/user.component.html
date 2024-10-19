@@ -1,0 +1,28 @@
+
+<ng-container>
+  <div *ngIf="loading$ | async" class="spinner">Loading...</div>
+  <div class="mt-5">
+    <form [formGroup]="form">
+      <div>
+        <label for="base-input">Name</label>
+        <input formControlName="name" type="text" />
+      </div>
+      <div>
+        <label for="base-input">Email</label>
+        <input formControlName="email"
+          type="email" id="email" placeholder="name@flowbite.com" required />
+      </div>
+    </form>
+  </div>
+
+  <!-- Add User -->
+  <button class="mt-4 btn" (click)="onAddUser()">Add User</button>
+
+  <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+    <li *ngFor="let user of users$ | async">
+      {{ user.name }} ({{ user.email }})
+      <button (click)="onDeleteUser(user.id!)">Delete</button>
+    </li>
+  </ul>
+
+</ng-container>
