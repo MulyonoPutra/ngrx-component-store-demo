@@ -58,6 +58,7 @@ export class UserComponent implements OnInit {
 
   onAddUser() {
     if (this.formCtrlValue) {
+      console.log('submitted...', this.formCtrlValue);
       this.usersStore.addUser(this.formCtrlValue);
     }
   }
